@@ -35,4 +35,8 @@ class ApplicationController < Sinatra::Base
     response.to_json(:only => [ :id, :username ])
   end
 
+  post '/score' do
+    response = Score.create(score: params[:score], user_id: params[:id])
+    response.to_json
+  end
 end
